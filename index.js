@@ -1,8 +1,12 @@
 const express=require('express');
 const app=express();
+const cookieparser=require('cookie-parser');
 const port=8000;
 const expressLayout =require('express-ejs-layouts');
 const db=require('./config/mongoose');
+
+app.use(express.urlencoded());
+app.use(cookieparser());
 app.use(expressLayout);
 
 //extract style and scripts
@@ -42,6 +46,7 @@ npm install ejs and set view engine
 npm install express-ejs-layouts for partial and layouts _header and _footer
 app.set layout extract to extract the styles
 npm install mongoose to connect to database and fill mongoose.js 
-
+to get the data from the form we use urlencoded to decode
+app.use is a middleware
 
 */
