@@ -3,12 +3,13 @@
 </h1>
 <section id="feed-posts">
         <h4>Posts</h4>
+       <% if(locals.user) {%> <!--if use only user throws an error because locals ia an object so it search for user key in this-->
         <form action="/posts/create" id="new-post-form" method="POST">
                 <textarea name="content" cols="30" rows="4" placeholder="type here" required></textarea>
                 <input type="submit" value="post">
         </form>
        
-
+<%}%>
 </section>
 
 <section id="show-post">
@@ -17,6 +18,10 @@
                         <% for(post of posts){%>
                         <li>
                                 <%= post.content %>
+                                <small>
+                                        <br>
+                                        <%= post.user.name %>
+                                </small>
 
                         </li>
                         <%}%>
