@@ -1,0 +1,10 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #2e98f0;
+  height: 40px; }
+  header ul {
+    display: flex;
+    list-style-type: none; }
+    header ul li {
+      margin-right: 16px; }

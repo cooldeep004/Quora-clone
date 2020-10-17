@@ -1,0 +1,15 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(46, 152, 240);
+    height: 40px;
+    ul{
+        display: flex;
+        list-style-type:none;
+        li{
+            margin-right: 16px;
+        }
+       // justify-content: center;
+    }
+   
+}
