@@ -1,0 +1,25 @@
+main {
+  display: flex; }
+
+#other {
+  width: 25%; }
+
+#feed-posts {
+  width: 40%; }
+
+#user {
+  width: 25%; }
+
+#posts-list-container1 {
+  border: 0.7px solid gray;
+  margin: 4px;
+  padding: 4px; }
+
+#comment-container {
+  margin-top: 4px; }
+
+small {
+  font-size: .7rem; }
+
+#new-post-form {
+  margin: 0px; }

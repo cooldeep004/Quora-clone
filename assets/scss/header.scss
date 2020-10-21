@@ -3,6 +3,8 @@ header{
     justify-content: space-between;
     background-color: rgb(46, 152, 240);
     height: 40px;
+    position: fixed;
+    width: 100%;
     ul{
         display: flex;
         list-style-type:none;

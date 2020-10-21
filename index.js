@@ -12,6 +12,8 @@ const MongoStore=require('connect-mongo')(session);
 const sassMiddleware=require('node-sass-middleware');
 
 
+
+const flash=require('connect-flash');
 app.use(sassMiddleware({
     src:'./assets/scss',
     dest:'./assets/css',
@@ -60,7 +62,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
 
-
+app.use(flash());
 
 
 //use express router

@@ -1,7 +1,7 @@
 const User=require('../models/user');
 const Post=require('../models/post');
 const { post } = require('../routes');
-module.exports.home=function(req,res){
+module.exports.home=async function(req,res){
     //console.log(req.cookies);
    /* Post.find({},function(err,posts){
         return res.render('home',{
@@ -10,7 +10,7 @@ module.exports.home=function(req,res){
         });
     });*/
 
-    Post.find({})
+   Post.find({})
     .populate('user')
 .populate({
     path:'comments',
