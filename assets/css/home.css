@@ -13,7 +13,7 @@ main {
   border-left: .8px solid gray;
   margin-left: 10px; }
 
-#posts-list-container1 {
+.posts-list-container1 {
   border: 0.7px solid gray;
   margin: 4px;
   padding: 4px; }

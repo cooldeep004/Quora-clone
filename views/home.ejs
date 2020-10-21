@@ -29,7 +29,7 @@
                 
                 <% for(post of posts){%>
 
-                        <div id="posts-list-container1">
+                        <div class="posts-list-container1" id="post-<%=post._id%>">
                                 <%= post.content %>
                                 <small>
                                         <%= post.user.name %>
@@ -37,7 +37,7 @@
                                 <% if(locals.user && locals.user.id == post.user.id){%>
                                 
                                 <small>
-                                        <a href="/posts/destroy/<%= post.id %>">X</a>
+                                        <a class="delete-post-button" href="/posts/destroy/<%= post.id %>">X</a>
                                 </small>
                                 <% }%>
                                 <div id="comment-container">
@@ -90,3 +90,6 @@
                 <% }%>
         </section>
 </main>
+<script 
+src="/js/home_posts.js">
+</script>
