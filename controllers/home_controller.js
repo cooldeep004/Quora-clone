@@ -10,7 +10,8 @@ module.exports.home=async function(req,res){
         });
     });*/
 
-   Post.find({})
+try{
+    let posts= await Post.find({})
     .populate('user')
 .populate({
     path:'comments',
@@ -18,13 +19,19 @@ module.exports.home=async function(req,res){
         path: 'user'
     }
 })
-    .exec(function(err,posts){
-       User.find({},function(err,user){
+    //.exec(function(err,posts){
+     let user=await  User.find({})
+       //,function(err,user){
         return res.render('home',{
             title:'Home',
             posts:posts,
             users:user
         });  
-       })
-    })
+      // })
+    //})
+}
+catch(err){
+console.log('error',err)
+return;
+}
 }

@@ -1,8 +1,12 @@
 <link rel="stylesheet" href="/css/home.css">
-<h1>
-        Home
-</h1>
 <main>
+        <% if(flash.success && flash.success.length > 0){%>
+                <h5>
+        
+                    <%= flash.success %>
+                </h5>
+                
+    <%}%>
         <section id="other">
 
         </section>

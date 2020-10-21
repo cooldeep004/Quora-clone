@@ -4,20 +4,21 @@ const LocalStrategy =require('passport-local').Strategy;
 const User=require('../models/user');
 //authentication using passport
 passport.use(new LocalStrategy({
-    usernameField:'email'
+    usernameField:'email',
+    passReqToCallback:true // for using the flassh messgaes
 },
-function(email,password,done){
+function(req,email,password,done){
 //find a user and establish the identity
 User.findOne({email:email},function(err,user)
 {
     if(err)
     {
-        console.log('error -------->')
+        req.flash('error','invalid username');
         return done(err);
     }
     if(!user || user.password!=password)
     {
-        console.log('invalid');
+        req.flash('error','invalid username');
         return done(null,false);
     }
     else{

@@ -8,7 +8,10 @@ main {
   width: 40%; }
 
 #user {
-  width: 25%; }
+  width: 25%;
+  padding: 10px;
+  border-left: .8px solid gray;
+  margin-left: 10px; }
 
 #posts-list-container1 {
   border: 0.7px solid gray;
