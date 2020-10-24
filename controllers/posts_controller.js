@@ -14,6 +14,7 @@ if(req.xhr){
         message:"Post created"
     })
 }
+req.flash('success', 'Post created!');
 
         if(err)
         {
@@ -41,6 +42,7 @@ if(req.xhr){
         message:"post deleted"
     })
 }
+req.flash('success', 'post deleted');
 
 
     return res.redirect('back');

@@ -1,12 +1,6 @@
 <link rel="stylesheet" href="/css/home.css">
 <main>
-        <% if(flash.success && flash.success.length > 0){%>
-                <h5>
         
-                    <%= flash.success %>
-                </h5>
-                
-    <%}%>
         <section id="other">
 
         </section>
@@ -15,64 +9,63 @@
                 <div id="post-form">
                         <h4>Posts</h4>
                         <% if(locals.user) {%>
+        <!--if use only user throws an error because locals ia an object so it search for user key in this-->
+                      <form action="/posts/create" id="new-post-form" method="POST">
+                <textarea name="content" cols="30" rows="4" placeholder="type here" required></textarea>
+                <input type="submit" value="post">
+                 </form>
+
+                <%}%>
+                </div>
+
+          <div id="posts-list-container">
+                
+                
+                     <% for(post of posts){%>
+
+                <div class="posts-list-containers" id="post-<%=post._id%>">
+                <%= post.content %>
+                <small>
+                        <%= post.user.name %>
+                </small>
+                <% if(locals.user && locals.user.id == post.user.id){%>
+
+                <small>
+                        <a class="delete-post-button" href="/posts/destroy/<%= post.id %>">X</a>
+                </small>
+                <% }%>
+                <div id="comment-container">
+
+                        <% if(locals.user) {%>
                         <!--if use only user throws an error because locals ia an object so it search for user key in this-->
-                        <form action="/posts/create" id="new-post-form" method="POST">
-                                <textarea name="content" cols="30" rows="4" placeholder="type here" required></textarea>
-                                <input type="submit" value="post">
+                        <form action="/comments/create" id="post-<%= post._id %>-comments-form" method="POST">
+                                <input type="text" name="content" placeholder="type here the coment" required>
+                                <input type="hidden" name="post" value="<%= post._id %>">
+                                <input type="submit" value="Add comment">
                         </form>
 
                         <%}%>
-      </div>
+                        <div id="post-comments-<%= post._id %>">
 
-        <div id="posts-list-container">
-                
-                
-                <% for(post of posts){%>
+                        <% for(comment of post.comments){ %>
 
-                        <div class="posts-list-container1" id="post-<%=post._id%>">
-                                <%= post.content %>
+                        <div class="comments-list-container" id="comment-<%= comment._id %>">
+                                <%= comment.content %>
+
                                 <small>
-                                        <%= post.user.name %>
-                                </small>
-                                <% if(locals.user && locals.user.id == post.user.id){%>
-                                
-                                <small>
-                                        <a class="delete-post-button" href="/posts/destroy/<%= post.id %>">X</a>
-                                </small>
-                                <% }%>
-                                <div id="comment-container">
-
-                                        <% if(locals.user) {%>
-                                        <!--if use only user throws an error because locals ia an object so it search for user key in this-->
-                                        <form action="/comments/create" id="new-post-form" method="POST">
-                                                <input type="text" name="content" placeholder="type here the coment"
-                                                        required>
-                                                <input type="hidden" name="post" value="<%= post._id %>">
-                                                <input type="submit" value="Add comment">
-                                        </form>
-
-                                        <%}%>
-                        
-                                                
-                                                        <% for(comment of post.comments){ %>
-
-                                     <div id="comment-content">
-                                        <%= comment.content %>
-
-                                     <small>
                                         <%= comment.user.name %>
                                 </small>
-                                        <% if(locals.user && (locals.user.id == post.user.id || locals.user.id==comment.user.id )){%>
+                                <% if(locals.user && (locals.user.id == post.user.id || locals.user.id==comment.user.id )){%>
 
-                                                <small>
-                                                        <a href="/comments/destroy/<%= comment.id %>">X</a>
-                                                </small>
-                                                <% }%>
-                                        
-                                </div>
-                                        <%}%>
-                                                
-                                 </div>
+                                <small>
+                                        <a class="delete-comment-button" href="/comments/destroy/<%= comment.id %>">X</a>
+                                </small>
+                                <% }%>
+
+                        </div>
+                        <%}%>
+                      </div>                   
+                 </div>
                            
                         
                         </div>
@@ -81,15 +74,16 @@
                 <%}%>
 
 
-        </section>
+                        </section>
 
-        <section id="user">
-                <% for(u of users){%>
-                <a href="/users/profile/<%=u.id%>"><%=u.name%></a>
-                <br>
-                <% }%>
-        </section>
+                        <section id="user">
+                                <% for(u of users){%>
+                                <a href="/users/profile/<%=u.id%>"><%=u.name%></a>
+                                <br>
+                                <% }%>
+                        </section>
 </main>
-<script 
-src="/js/home_posts.js">
+
+<script src="/js/home_comments.js"></script>
+<script src="/js/home_posts.js">
 </script>

@@ -35,8 +35,8 @@ app.set('layout extractScripts', true);
 
 //look for the assets file like css nd js
 app.use(express.static('./assets'))
-
-
+//make the uploads path avilable to browser
+app.use('/uploads', express.static(__dirname + '/uploads'));
 //set up the views
 app.set('view engine','ejs');
 app.set('views','./views');
