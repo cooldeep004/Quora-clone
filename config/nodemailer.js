@@ -17,8 +17,8 @@ let transporter=nodemailer.createTransport({
     port:587,
     secure: false,
     auth:{
-        user:'',
-        pass:''
+        user:'yy', //gmail
+        pass:'ii' //password
     }
 })
 
@@ -31,10 +31,15 @@ function(err,template)
 {
     if(err)
         {
-            console.log('error in rendering template');
+            console.log('error in rendering template',err);
             return;
         }
         mailHTML=template;
 }
    )
+   return mailHTML;
+}
+module.exports={
+    transporter  :transporter,
+    renderTemplate : renderTemplate
 }
