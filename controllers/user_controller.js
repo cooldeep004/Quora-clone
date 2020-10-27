@@ -92,6 +92,8 @@ module.exports.create = function (req, res) {
                     console.log('errror');
                     return;
                 }
+                req.flash('success', 'succesfully_sign-up!!!!');
+
                 return res.redirect('/users/sign_in');
             })
         }
