@@ -23,7 +23,7 @@ main{
     border: 0.7px solid gray;
     margin: 4px;
     padding:4px;
-    
+    border-radius: 2%;
     //overflow: scroll;
     overflow-wrap: break-word;;
 }
@@ -39,4 +39,7 @@ small{
 }
 #new-post-form{
     margin: 0px;
+    #button{
+        color: blueviolet;
+    }
 }

@@ -11,8 +11,8 @@
                         <% if(locals.user) {%>
         <!--if use only user throws an error because locals ia an object so it search for user key in this-->
                       <form action="/posts/create" id="new-post-form" method="POST">
-                <textarea name="content" cols="30" rows="4" placeholder="type here" required></textarea>
-                <input type="submit" value="post">
+                <textarea name="content" cols="45" rows="4" placeholder="type here" required></textarea>
+                <input id="button" type="submit" value="post">
                  </form>
 
                 <%}%>

@@ -20,6 +20,7 @@ main {
   border: 0.7px solid gray;
   margin: 4px;
   padding: 4px;
+  border-radius: 2%;
   overflow-wrap: break-word; }
 
 #comment-container {
@@ -30,3 +31,5 @@ small {
 
 #new-post-form {
   margin: 0px; }
+  #new-post-form #button {
+    color: blueviolet; }
