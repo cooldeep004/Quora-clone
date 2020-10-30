@@ -13,7 +13,11 @@ const passportGoogle=require('./config/passport-google-oauth2-strategy');
 const MongoStore=require('connect-mongo')(session);
 const sassMiddleware=require('node-sass-middleware');
 
-
+//setup the chat server to be used 
+const chatServer =require('http').Server(app);
+const chatSocket=require('./config/chat_socket').chatSockets(chatServer);
+chatServer.listen(5000);
+console.log('chat server is runninr on port 5000');
 
 const flash=require('connect-flash');
 const customMware=require('./config/middleware');
